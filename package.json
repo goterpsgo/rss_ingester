@@ -1,0 +1,33 @@
+{
+  "name": "rss_ingester",
+  "version": "0.0.0",
+  "description": "RSS ingester for a given URL.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goterpsgo/rss_ingester.git"
+  },
+  "keywords": [
+    "npm",
+    "nodejs",
+    "rss",
+    "pg",
+    "knex"
+  ],
+  "author": "goterpsgo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goterpsgo/rss_ingester/issues"
+  },
+  "homepage": "https://github.com/goterpsgo/rss_ingester#readme",
+  "dependencies": {
+    "parse-rss": "^1.0.3"
+  }
+}
