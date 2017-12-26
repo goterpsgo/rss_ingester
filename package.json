@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/goterpsgo/rss_ingester#readme",
   "dependencies": {
-    "parse-rss": "^1.0.3"
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "rss-parser": "^2.11.0"
   }
 }
