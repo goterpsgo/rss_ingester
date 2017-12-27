@@ -1,4 +1,11 @@
-var rss_ingester = require("./lib/rss_ingester");
+parser = require("rss-parser"); // https://github.com/bobby-brennan/rss-parser
+moment = require("moment");
+fs = require("fs");
+var this_dir = './rss';
+
+if (!fs.existsSync(this_dir)) {
+  fs.mkdirSync(this_dir);
+}
 
 var source = {
   name: "Asian Development Bank",
@@ -6,13 +13,14 @@ var source = {
   url: "https://www.adb.org/projects/rss" // mandatory
 }
 
-var this_ingester = new rss_ingester(source);
-console.log(this_ingester.source);
-this_ingester.ingest_data.then(function(response) {
-  console.log(response);
-}, function(error) {
-  console.log(error);
-});
-// console.log(this_ingester);
-// console.log(this_ingester.get_data());
-// this_ingester.dump_data();
+parser.parseURL(source.url, function(err, parsed) {
+  console.log(parsed.feed.title);
+  console.log(moment().format('YYYYMMDD'));
+  var filename = this_dir + '/' + moment().format('YYYYMMDD') + '_' + source.prefix + '.json'
+  fs.writeFile(filename, JSON.stringify(parsed.feed), function(err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('Content saved to ' + filename);
+  });
+})
