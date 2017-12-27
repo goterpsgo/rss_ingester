@@ -14,8 +14,6 @@ var source = {
 }
 
 parser.parseURL(source.url, function(err, parsed) {
-  console.log(parsed.feed.title);
-  console.log(moment().format('YYYYMMDD'));
   var filename = this_dir + '/' + moment().format('YYYYMMDD') + '_' + source.prefix + '.json'
   fs.writeFile(filename, JSON.stringify(parsed.feed), function(err) {
     if (err) {
